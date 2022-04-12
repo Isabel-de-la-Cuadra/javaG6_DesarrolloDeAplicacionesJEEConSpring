@@ -13,7 +13,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.desafiolatam.models.Direccion;
 import com.desafiolatam.models.Usuario;
+import com.desafiolatam.services.DireccionService;
 import com.desafiolatam.services.UsuarioService;
 
 //El controller no me responde con un mensaje en la página como el RestController
@@ -23,6 +25,9 @@ public class UsuarioController {
 	//Inyección de dependencia
 	@Autowired
 	UsuarioService usuarioService;
+	
+	@Autowired
+	DireccionService direccionService;
 	
 	@RequestMapping("/") // https://localhost:9080
 	public String showLogin() {
@@ -175,4 +180,17 @@ public class UsuarioController {
 			session.invalidate();//matar la sesión
 			return "redirect:/";
 		}
+		
+		@RequestMapping("/listaUsuariosDireccion") // https://localhost:9080/listaUsuariosDireccion
+		public String mostrarListaUsuariosDireccion(@ModelAttribute("usuario") Usuario usuario, Model model) {
+			model.addAttribute("listaUsuarios", usuarioService.findAll());
+			return "listaUsuariosDireccion.jsp"; // Llamado al jsp u otra ruta
+		}
+	
+		@RequestMapping("/listaDireccionesUsuarios") // https://localhost:9080/listaDireccionesUsuarios
+		public String mostrarListaDireccionUsuarios(@ModelAttribute("direccion") Direccion direccion, Model model) {
+			model.addAttribute("listaDirecciones", direccionService.findAll());
+			return "listaDireccionesUsuarios.jsp"; // Llamado al jsp u otra ruta
+		}
+
 }

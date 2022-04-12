@@ -15,6 +15,10 @@
 						Cliente</a></li>
 				<li class="nav-item"><a class="nav-link" href="auto">Crear
 						Auto</a></li>
+				<li class="nav-item"><a class="nav-link" href="listaUsuariosDireccion">Listar Usuario - Dirección
+						</a></li>
+				<li class="nav-item"><a class="nav-link" href="listaDireccionesUsuarios">Listar Direcciones - Usuarios
+						</a></li>
 				<li class="nav-item">
 					<form method="POST" action="/logout">
 						<input type="hidden" name="${_csrf.parameterName}"

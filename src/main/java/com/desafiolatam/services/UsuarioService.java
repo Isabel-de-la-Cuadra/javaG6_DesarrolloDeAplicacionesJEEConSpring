@@ -46,7 +46,6 @@ public class UsuarioService { //Clase para la lógica de negocio
 	}
 
 	public Usuario findByCorreo(String correoUsuario) {
-		// TODO Auto-generated method stub
 		return usuarioRepository.findByCorreo(correoUsuario);
 	}
 

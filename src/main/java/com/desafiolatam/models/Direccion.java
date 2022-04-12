@@ -60,7 +60,6 @@ public class Direccion {
 	// se queda con la FK
 	@OneToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "cliente_id")
-	
 	private Cliente cliente;
 
 	@Column(updatable = false)

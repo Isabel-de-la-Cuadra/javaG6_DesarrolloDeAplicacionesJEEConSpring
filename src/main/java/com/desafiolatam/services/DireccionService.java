@@ -1,5 +1,7 @@
 package com.desafiolatam.services;
 
+import java.util.List;
+
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,6 +18,10 @@ public class DireccionService {
 	public void save(@Valid Direccion direccion) {
 		direccionRepository.save(direccion);
 	
+	}
+
+	public List<Direccion> findAll() {
+		return direccionRepository.findAll();
 	}
 	
 }
