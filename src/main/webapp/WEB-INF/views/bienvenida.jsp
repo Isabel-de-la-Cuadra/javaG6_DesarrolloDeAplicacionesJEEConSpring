@@ -6,13 +6,13 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 
 
-<jsp:include page='template/header.jsp'>
-	<jsp:param name='title' value='Index:' />
+<jsp:include page='../template/header.jsp'>
+	<jsp:param name='title' value='Bienvenida:' />
 </jsp:include>
 
 <body>
 
-	<jsp:include page='template/navbar2.jsp'>
+	<jsp:include page='../template/navbar2.jsp'>
 		<jsp:param name='title' value='Sistema Web G6 - 2' />
 		<jsp:param name='nombreUsuario' value='${nombreUsuario}' />
 	</jsp:include>
@@ -31,13 +31,28 @@
 			</div>
 		</c:if>
 
-
-		<h1>¡Bienvenido al sistema web de Cumplepekes!</h1>
-		<h3>Elige en el Navbar lo que deseas hacer, ${nombreUsuario}</h3>
+<br>
+<br>
+		<h1>¡Bienvenid@ al sistema web!</h1>
+<br>	
+<br>			
+		<h3>${nombreUsuario}, elige en el Navbar lo que deseas hacer </h3>
 
 	</div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 
-	<jsp:include page='template/footer.jsp'>
+	<jsp:include page='../template/footer.jsp'>
 		<jsp:param name='title' value='Sistema Web G6' />
 	</jsp:include>
 

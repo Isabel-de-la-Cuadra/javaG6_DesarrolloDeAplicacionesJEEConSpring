@@ -29,9 +29,9 @@ public class UsuarioController {
 	@Autowired
 	DireccionService direccionService;
 	
-	@RequestMapping("/") // https://localhost:9080
+	@RequestMapping("/") // https://localhost:9080/
 	public String showLogin() {
-		return "login.jsp"; // Llamado al jsp u otra ruta
+		return "views/login.jsp"; // Llamado al jsp u otra ruta
 	}
 
 	/*
@@ -63,7 +63,7 @@ public class UsuarioController {
 				return "redirect:/bienvenida";
 			}else {
 				model.addAttribute("msgError", "Error de ingreso, por favor reintente");
-				return "login.jsp";
+				return "views/login.jsp";
 			}
 
 			// pasar parámetro a otra ruta de controller, en este caso es un mensaje, pero
@@ -76,7 +76,7 @@ public class UsuarioController {
 		} else {
 			// retornar mensaje de error y mantener en la página
 			model.addAttribute("msgError", "Faltan datos, por favor, reinténtalo");
-			return "login.jsp";
+			return "views/login.jsp";
 		}
 
 	}
@@ -86,7 +86,7 @@ public class UsuarioController {
 	public String showRegistro(@ModelAttribute("usuario") Usuario usuario) { //con @ModelAttribute traspasamos el objeto desde el .jsp
 	//public String showRegistro(Model,model){
 		//model.addAtribute("usuario", new Usuario()); /* otra forma de pasar un objeto vacío*/
-		return "registro.jsp"; // Llamado al jsp u otra ruta
+		return "usuario/registro.jsp"; // Llamado al jsp u otra ruta
 	}
 
 	// capturar los datos del jsp
@@ -124,13 +124,13 @@ public class UsuarioController {
 			}else {
 				// retornar mensaje de error y mantener en la página
 				model.addAttribute("msgError", "Pónte en contacto con nuestro operador, error al crear usuario");
-							return "registro.jsp";
+							return "usuario/registro.jsp";
 			}
 
 		} else {
 			// retornar mensaje de error y mantener en la página
 			model.addAttribute("msgError", "Faltan datos, por favor, reinténtalo");
-			return "registro.jsp";
+			return "usuario/registro.jsp";
 		}
 
 	}
@@ -170,7 +170,7 @@ public class UsuarioController {
 			} else {
 				// retornar mensaje de error y mantener en la página
 				model.addAttribute("msgError", "Faltan datos, por favor, reinténtalo");
-				return "registro.jsp";
+				return "usuario/registro.jsp";
 			}
 
 		}
@@ -184,13 +184,13 @@ public class UsuarioController {
 		@RequestMapping("/listaUsuariosDireccion") // https://localhost:9080/listaUsuariosDireccion
 		public String mostrarListaUsuariosDireccion(@ModelAttribute("usuario") Usuario usuario, Model model) {
 			model.addAttribute("listaUsuarios", usuarioService.findAll());
-			return "listaUsuariosDireccion.jsp"; // Llamado al jsp u otra ruta
+			return "usuario/listaUsuariosDireccion.jsp"; // Llamado al jsp u otra ruta
 		}
 	
 		@RequestMapping("/listaDireccionesUsuarios") // https://localhost:9080/listaDireccionesUsuarios
 		public String mostrarListaDireccionUsuarios(@ModelAttribute("direccion") Direccion direccion, Model model) {
 			model.addAttribute("listaDirecciones", direccionService.findAll());
-			return "listaDireccionesUsuarios.jsp"; // Llamado al jsp u otra ruta
+			return "usuario/listaDireccionesUsuarios.jsp"; // Llamado al jsp u otra ruta
 		}
 
 }

@@ -12,17 +12,23 @@
 
 <style>
 
+/*
 body{
 
-background-color:   #817dfd;
+background-image: linear-gradient(to right, rgba(94,69,255,0), rgba(94,69,255,1));
 
-background-image: url("https://i.gifer.com/origin/03/03270abe66b1c66ef8832c57aa6da0c1.gif");
+}
+*/
+
+#card {
+
+background-image: linear-gradient(to bottom right, rgba(0, 0, 255, 0.2), rgba(0, 0, 255, 0.9));
 
 }
 
 /*
-.btn::before,
-.btn::after{
+#botonColor::before,
+#botonColor::after{
 content:"";
 display:block;
 position:absolute;
@@ -30,20 +36,32 @@ inset: 0;
 z-index: -1;
 } 
 
-.btn::after{
-background-color: #292929;
-}
-
-.btn::before{
+#botonColor:before{
 background-image: linear-gradient(to bottom right, #aeffb9 0%, #a091ff 100%);
 transition: transform 200 ms;
 }
 
-.btn:hover::before,
-.btn:focus::before{
+#botonColor:after{
+background-color: rgba(160,170,255);
+}
+
+#botonColor:hover::before,
+#botonColor:focus::before{
 transform: scale(1.1);
 }
 */
+
+img {
+  position: relative;
+  animation-name: auto;
+  animation-duration: 4s;
+}
+
+@keyframes auto {
+  0%   {left:0px; top:0px;}
+  50%  {left:280px; top:0px;}
+  100% {left:0px; top:0px;}
+}
 
 </style>
 

@@ -1,6 +1,7 @@
 package com.desafiolatam.models;
 
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -9,6 +10,7 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
@@ -41,7 +43,15 @@ public class Cliente {
 	//se mapea con cliente no con la tabla
 	@OneToOne (mappedBy="cliente", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	private Direccion direccion;
-		
+
+	//OneToMany si no tiene la FK es solo esto
+	@OneToMany (mappedBy="cliente", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	private List<Compra> compras;
+	
+	//OneToMany si no tiene la FK es solo esto
+	@OneToMany (mappedBy="cliente", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	private List<Venta> ventas;
+	
 	//updatable= false fecha en que se creó y no se va a poder modificar, a nivel de BD
 	//DateTimeFormat en formato USA con la finalidad de poder hacer cálculos más fáciles
 	@Column(updatable=false)
@@ -124,7 +134,22 @@ public class Cliente {
 		this.updatedAt = updatedAt;
 	}
 
-	
+	public List<Compra> getCompras() {
+		return compras;
+	}
+
+	public void setCompras(List<Compra> compras) {
+		this.compras = compras;
+	}
+
+	public List<Venta> getVentas() {
+		return ventas;
+	}
+
+	public void setVentas(List<Venta> ventas) {
+		this.ventas = ventas;
+	}
+
 	@Override
 	public String toString() {
 		return "Cliente [id=" + id + ", nombre=" + nombre + ", apellido=" + apellido + ", correo=" + correo

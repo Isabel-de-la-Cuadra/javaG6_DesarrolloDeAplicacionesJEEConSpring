@@ -50,7 +50,7 @@ public class AutoController {
 
 			model.addAttribute("listaAutos", autoService.findAll());
 
-			return "auto.jsp"; // Llamado al jsp u otra ruta
+			return "auto/auto.jsp"; // Llamado al jsp u otra ruta
 		} else {
 			return "redirect:/";
 		}
@@ -80,7 +80,7 @@ public class AutoController {
 			model.addAttribute("listaAutos", autoService.findAll());
 			// retornar mensaje de error y mantener en la página
 			redirectAttributes.addFlashAttribute("msgError", "Faltan datos, por favor, reinténtalo");
-			return "auto.jsp"; // redirigir
+			return "auto/auto.jsp"; // redirigir
 		}
 		// Redireccionamiento al mismo /auto, pero con mensajes diferentes
 		return "redirect:/auto"; // redirigir
@@ -103,7 +103,7 @@ public class AutoController {
 		model.addAttribute("auto", auto);
 		// TB model.addAttribute("auto", autoServive.findById(id);
 
-		return "editarAuto.jsp";
+		return "auto/editarAuto.jsp";
 	}
 
 	// capturar los datos del jsp después de modificar
@@ -120,7 +120,7 @@ public class AutoController {
 			model.addAttribute("listaAutos", autoService.findAll());
 			// retornar mensaje de error y mantener en la página
 			redirectAttributes.addFlashAttribute("msgError", "Faltan datos, por favor, reinténtalo");
-			return "auto.jsp"; // redirigir
+			return "auto/auto.jsp"; // redirigir
 		}
 	}
 

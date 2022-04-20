@@ -6,14 +6,14 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 
 
-<jsp:include page='template/header.jsp'>
+<jsp:include page='../template/header.jsp'>
 	<jsp:param name='title' value='Auto:' />
 </jsp:include>
 
 <body>
 
-<jsp:include page='template/navbar2.jsp'>
-<jsp:param name='title' value='Sistema Web G6' />
+<jsp:include page='../template/navbar2.jsp'>
+<jsp:param name='title' value='Sistema Web' />
 </jsp:include> 
 
 	<br>
@@ -23,11 +23,11 @@
 		<div class="container h-100">
 			<div class="row justify-content-sm-center h-100">
 				<div class="col-xxl-4 col-xl-5 col-lg-5 col-md-7 col-sm-9">
-					<div class="card shadow-lg" style="background-color: #f6fa04">
+					<div class="card shadow-lg" id="card">
 						<div class="card-body p-5">
-							<h1 class="fs-4 card-title fw-bold mb-4">Formulario de
-								Actualización de Auto</h1>
-
+								<img alt="" src="img/coche.png" width="80px;">
+								<h3 class="fs-4 card-title mb-4">Formulario de
+									Registro de Auto</h3>
 							<c:if test="${msgError !=null}">
 								<div class="alert alert-danger" role="alert">
 									<c:out value="${msgError}"></c:out>
@@ -40,40 +40,39 @@
 								</div>
 							</c:if>
 
-							<form:form method="POST" action="/auto/actualizar" modelAttribute="auto">
-								<form:input type="hidden" class="form-control" path="id"
-										value="" />
+							<form:form method="POST" action="/auto" modelAttribute="auto">
+
 								<div class="mb-3">
 									<form:label class="mb-2 text-muted" path="marca">Marca: </form:label>
 									<form:input type="text" class="form-control" path="marca"
-										value="" />
+										value="" placeholder="Ingresa la marca del auto" />
 									<form:errors path="marca" class="text-danger" />
 								</div>
 
 								<div class="mb-3">
 									<form:label class="mb-2 text-muted" path="modelo">Modelo</form:label>
 									<form:input type="text" class="form-control" path="modelo"
-										value=""  />
+										value="" placeholder="Ingresa el modelo del auto" />
 									<form:errors path="modelo" class="text-danger" />
 								</div>
 
 								<div class="mb-3">
 									<form:label class="mb-2 text-muted" path="color">Color</form:label>
 									<form:input type="text" class="form-control" path="color"
-										value="" />
+										value="" placeholder="Ingresa el color del auto" />
 									<form:errors path="color" class="text-danger"/>
 								</div>
 
 								<div class="mb-3">
 									<form:label class="mb-2 text-muted" path="velocidad">Velocidad</form:label>
 									<form:input type="number" class="form-control" path="velocidad"
-										value="" />
+										placeholder="Ingresa la velocidad del Auto" />
 									<form:errors path="velocidad" class="text-danger" />
 								</div>
 
 								<div class="align-items-center d-flex">
-									<button type="submit" class="btn btn-warning ms-auto">
-										Actualizar</button>
+									<button type="submit" class="btn btn-primary ms-auto">
+										Registrar</button>
 								</div>
 							</form:form>
 						</div>
@@ -86,7 +85,39 @@
 	<br>
 	<br>
 
-		<jsp:include page='template/footer.jsp'>
+<div class="table-responsive">
+  <table class="table">
+				<thead>
+					<tr>
+						<th scope="col">#</th>
+						<th scope="col">Marca</th>
+						<th scope="col">Modelo</th>
+						<th scope="col">Color</th>
+						<th scope="col">Velocidad</th>
+						<th scope="col">Acciones</th>
+					</tr>
+				</thead>
+				<tbody>
+					<c:forEach var="auto" items="${listaAutos}">
+						<tr>
+							<th scope="row"><c:out value="${auto.id}"></c:out></th>
+							<td><c:out value="${auto.marca}">
+								</c:out></td>
+							<td><c:out value="${auto.modelo}">
+								</c:out></td>
+							<td><c:out value="${auto.color}"></c:out></td>
+							<td><c:out value="${auto.velocidad}"></c:out></td>
+							<td><a class="btn btn-primary" href="/auto/editar/${auto.id}" role="button">Editar</a>
+								<a class="btn btn-danger" href="/auto/eliminar/${auto.id}" role="button">Eliminar</a>
+							</td>
+						</tr>
+					</c:forEach>
+				</tbody>
+			</table>
+		</div>
+		<br> <br>
+
+		<jsp:include page='../template/footer.jsp'>
 			<jsp:param name='title' value='Sistema Web G6' />
 		</jsp:include>
 

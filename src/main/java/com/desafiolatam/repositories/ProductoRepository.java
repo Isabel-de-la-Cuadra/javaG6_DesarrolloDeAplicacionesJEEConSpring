@@ -3,10 +3,9 @@ package com.desafiolatam.repositories;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-
-import com.desafiolatam.models.Cliente;
+import com.desafiolatam.models.Producto;
 
 @Repository
-public interface ClienteRepository extends JpaRepository<Cliente, Long>{
+public interface ProductoRepository extends JpaRepository<Producto, Long>{
 
 }

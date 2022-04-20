@@ -44,7 +44,7 @@ public class ClienteController {
 			
 			// listaClientes
 			model.addAttribute("listaClientes", clienteService.findAll());
-			return "cliente.jsp"; // Llamado al jsp u otra ruta
+			return "cliente/cliente.jsp"; // Llamado al jsp u otra ruta
 		} else {
 			return "redirect:/";
 		}
@@ -70,7 +70,7 @@ public class ClienteController {
 			// retornar mensaje de error y mantener en la página
 			redirectAttributes.addFlashAttribute("msgError", "Faltan datos, por favor, reinténtalo");
 			// Redirigir
-			return "cliente.jsp";
+			return "cliente/cliente.jsp";
 		}
 
 		// Redireccionamiento al mismo /cliente, pero con mensajes diferentes
@@ -94,7 +94,7 @@ public class ClienteController {
 		model.addAttribute("cliente", cliente);
 		// TB model.addAttribute("cliente", clienteServive.findById(id);
 
-		return "editarCliente.jsp";
+		return "cliente/editarCliente.jsp";
 	}
 
 	// capturar los datos del jsp después de modificar
@@ -116,11 +116,20 @@ public class ClienteController {
 			// redirectAttributes.addFlashAttribute("msgError", "Faltan datos, por favor, reinténtalo");
 			// Redirigir
 			
-			return "editarCliente.jsp";
+			return "cliente/editarCliente.jsp";
 		}
 
 		// Redireccionamiento al mismo /cliente, pero con mensajes diferentes
 		return "redirect:/cliente"; // redirigir
 	}
 
+	@RequestMapping("compras/{id}")
+	public String cantidadCompras(@PathVariable("id") Long id, Model model) {
+		Cliente cliente = clienteService.obtenerCliente(id);
+		model.addAttribute("cliente", cliente);
+		//model.addAttribute("listaCompras", cliente.getCompras());
+		return "cliente/listaCompras.jsp";
+	}
+	
+	
 }

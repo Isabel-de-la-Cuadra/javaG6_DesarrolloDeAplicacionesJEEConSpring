@@ -28,7 +28,7 @@ public class HomeController {
 			String correoUsuario = (String) session.getAttribute("correoUsuario");
 			Usuario usuario = usuarioService.findByCorreo(correoUsuario);
 			model.addAttribute("nombreUsuario", usuario.getNombre());
-			return "bienvenida.jsp"; // Llamado al jsp u otra ruta
+			return "views/bienvenida.jsp"; // Llamado al jsp u otra ruta
 		} else {
 			return "redirect:/";
 		}

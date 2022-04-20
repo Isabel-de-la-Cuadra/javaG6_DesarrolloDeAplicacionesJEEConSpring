@@ -36,7 +36,7 @@ public class DireccionController {
 		
 		model.addAttribute("listaUsuarios", usuarioService.findAll());
 		
-		return "direccionUsuario.jsp"; // Llamado al jsp u otra ruta
+		return "usuario/direccionUsuario.jsp"; // Llamado al jsp u otra ruta
 	}
 	
 	@PostMapping("/usuario/agregar")
@@ -52,7 +52,7 @@ public class DireccionController {
 			return "redirect:/direccion/usuario";
 		}else {//existe error capturado por el @Valid
 			model.addAttribute("listaUsuarios", usuarioService.findAll());
-			return "direccionUsuario.jsp"; // Llamado al jsp u otra ruta
+			return "usuario/direccionUsuario.jsp"; // Llamado al jsp u otra ruta
 		}
 	}
 	
@@ -62,7 +62,7 @@ public class DireccionController {
 			
 			model.addAttribute("listaClientes", clienteService.findAll());
 			
-			return "direccionCliente.jsp"; // Llamado al jsp u otra ruta
+			return "cliente/direccionCliente.jsp"; // Llamado al jsp u otra ruta
 		}
 		
 		@PostMapping("/cliente/agregar")
@@ -78,10 +78,7 @@ public class DireccionController {
 				return "redirect:/direccion/cliente";
 			}else {//existe error capturado por el @Valid
 				model.addAttribute("listaUsuarios", usuarioService.findAll());
-				return "direccionCliente.jsp"; // Llamado al jsp u otra ruta
+				return "cliente/direccionCliente.jsp"; // Llamado al jsp u otra ruta
 			}
 		}
-
-	
-	
 }

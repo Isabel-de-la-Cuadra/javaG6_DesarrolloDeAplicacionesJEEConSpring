@@ -4,14 +4,14 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %> 
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 
-<jsp:include page='template/header.jsp'>
+<jsp:include page='../template/header.jsp'>
 <jsp:param name='title' value='Direccion:' />
 </jsp:include> 
 
 <body>
 
-<jsp:include page='template/navbar.jsp'>
-<jsp:param name='title' value='Sistema Web G6' />
+<jsp:include page='../template/navbar2.jsp'>
+<jsp:param name='title' value='Sistema Web' />
 </jsp:include> 
 
 <br>
@@ -21,9 +21,9 @@
 		<div class="container h-100">
 			<div class="row justify-content-sm-center h-100">
 				<div class="col-xxl-4 col-xl-5 col-lg-5 col-md-7 col-sm-9">
-					<div class="card shadow-lg" style="background-color: #f6fa04">
+					<div class="card shadow-lg" id="card">
 						<div class="card-body p-5">
-							<h1 class="fs-4 card-title fw-bold mb-4">Formulario de Registro de Usuarios</h1>
+							<h1 class="fs-4 card-title mb-4">Formulario de Registro de Usuarios</h1>
 
 							<c:if test="${msgError !=null}">
 								<div class="alert alert-danger" role="alert">
@@ -37,19 +37,19 @@
 								</div>
 							</c:if>
 
-							<form:form  method="POST" action="/direccion/cliente/agregar" modelAttribute="direccion">
+							<form:form  method="POST" action="/direccion/usuario/agregar" modelAttribute="direccion">
 						
 								<div class="mb-3">
 									<form:select path="usuario" class="form-select">
-										<form:option value="0">Seleccione Cliente</form:option>
-										<c:forEach items="${listaClientes}" var="user">
+										<form:option value="0">Seleccione Usuario</form:option>
+										<c:forEach items="${listaUsuarios}" var="user">
 											<c:if test="${user.direccion.id == null }">
 												<form:option value="${user.id}">
 													<c:out value="${user.nombre}"></c:out>
 												</form:option>
 											</c:if>	
 										</c:forEach>								
-									</form:select>		
+									</form:select>
 								</div>
 
 								<div class="mb-3">
@@ -95,7 +95,7 @@
 								</div>
 
 								<div class="align-items-center d-flex">
-									<button type="submit" class="btn btn-warning ms-auto">
+									<button type="submit" class="btn btn-primary ms-auto">
 										Registra la Dirección</button>
 								</div>
 							</form:form>
@@ -109,7 +109,7 @@
 <br>
 <br> 
 
-<jsp:include page='template/footer.jsp'>
+<jsp:include page='../template/footer.jsp'>
 <jsp:param name='title' value='Sistema Web G6' />
 </jsp:include> 
 

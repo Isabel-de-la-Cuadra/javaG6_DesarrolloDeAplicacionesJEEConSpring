@@ -34,4 +34,7 @@ public class ClienteService {// Clase para la lógica de negocio
 		return clienteRepository.findById(id).get(); // solo con findById permite usar el método .get()
 	}
 
+	public Cliente obtenerCliente(Long id) {
+		return clienteRepository.findById(id).get();
+	}
 }

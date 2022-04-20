@@ -6,14 +6,14 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 
 
-<jsp:include page='template/header.jsp'>
+<jsp:include page='../template/header.jsp'>
 <jsp:param name='title' value='Registro:' />
 </jsp:include> 
 
 <body>
 
-<jsp:include page='template/navbar.jsp'>
-<jsp:param name='title' value='Sistema Web G6' />
+<jsp:include page='../template/navbar.jsp'>
+<jsp:param name='title' value='Sistema Web' />
 </jsp:include> 
 
 
@@ -24,9 +24,9 @@
 		<div class="container h-100">
 			<div class="row justify-content-sm-center h-100">
 				<div class="col-xxl-4 col-xl-5 col-lg-5 col-md-7 col-sm-9">
-					<div class="card shadow-lg" style="background-color: #f6fa04">
+					<div class="card shadow-lg" id="card">
 						<div class="card-body p-5">
-							<h1 class="fs-4 card-title fw-bold mb-4">Formulario de Registro</h1>
+							<h1 class="fs-4 card-title mb-4">Formulario de Registro</h1>
 
 							<c:if test="${msgError !=null}">
 								<div class="alert alert-danger" role="alert">
@@ -81,7 +81,7 @@
 								</p>
 								 -->
 								<div class="align-items-center d-flex">
-									<button type="submit" class="btn btn-warning ms-auto">
+									<button type="submit" class="btn btn-primary ms-auto">
 										Registrar</button>
 								</div>
 							</form:form>
@@ -104,7 +104,7 @@
 <br>
 <br> 
 
-<jsp:include page='template/footer.jsp'>
+<jsp:include page='../template/footer.jsp'>
 <jsp:param name='title' value='Sistema Web G6' />
 </jsp:include> 
 
