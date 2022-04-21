@@ -55,8 +55,8 @@
 				</div>
 
 				<div class="col-sm">
-					<label class="form-text">Cantidad:</label> <input
-						type="number" class="form-control" value="0"
+					<label class="form-text">Cantidad:</label> <input type="number"
+						class="form-control" value="0"
 						placeholder="Ingresa la cantidad de compra" name="cantidad" />
 				</div>
 
@@ -86,34 +86,53 @@
 				</thead>
 				<tbody>
 					<c:forEach var="productosVentas" items="${listaProductosVentas}">
-						<c:if test="${ventaId == productosVentas.venta.id}">
-						<tr>
-							<!-- <th scope="row"><c:out value="${productosVentas.id}"></c:out></th> -->
-							<td><c:out value="${productosVentas.cantidad}">
-								</c:out></td>
-							<td><c:out value="${productosVentas.producto.nombre}">
-								</c:out></td>
-							<td><c:out value="${productosVentas.valorUnitario}">
-								</c:out></td>
-							<td><c:out value="${productosVentas.total}">
-								</c:out></td>
-							<td><a class="btn btn-outline-danger" href="/venta/producto/${productosVenta.id}/">Eliminar</td>
-						</tr>
-						</c:if>
+							<tr>
+								<td><c:out value="${productosVentas.cantidad}">
+									</c:out></td>
+								<td><c:out value="${productosVentas.producto.nombre}">
+									</c:out></td>
+								<td><c:out value="${productosVentas.valorUnitario}">
+									</c:out></td>
+								<td><c:out value="${productosVentas.total}">
+									</c:out></td>
+								<td><a class="btn btn-outline-danger"
+									href="/venta/eliminar/${productosVentas.id}" role="button">Eliminar</a> </td>
+							</tr>
 					</c:forEach>
-						<tr>
-							<td></td>
-							<td></td>
-							<td>TOTAL</td>
-							<td>${venta.monto}</td>
-						</tr>
-					
+					<tr>
+						<td></td>
+						<td></td>
+						<td>TOTAL</td>
+						<td>${productosVentas.venta.monto}</td>	
+					</tr>
+
 				</tbody>
 			</table>
+
+			<form method="POST" action="/venta/finalizar">
+				<input type="hidden" value="${ventaId}" name="ventaId">
+				<div class="row g-3 align-items-center">
+					<div class="col-sm-5">
+						<label for="productoId" class="form-text">Seleccione un
+							cliente:</label> <select id="cliente" name="cliente" class="form-select">
+							<option value="0">Seleccione cliente</option>
+							<c:forEach items="${listaClientes}" var="cliente">
+								<option value="${cliente.id}">
+									<c:out value="${cliente.nombre}"></c:out>
+								</option>
+							</c:forEach>
+						</select>
+					</div>
+
+					<div class="align-items-center d-flex">
+						<button type="submit" class="btn btn-primary ms-auto">
+							Finalizar venta</button>
+
+					</div>
+				</div>
+			</form>
 		</div>
 	</div>
-
-
 
 
 

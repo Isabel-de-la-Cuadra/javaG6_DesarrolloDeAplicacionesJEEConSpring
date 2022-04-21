@@ -30,5 +30,14 @@ public class ProductoVentaService {
 	public List<ProductosVentas> findAllProductosVentas(Long id) {
 		return productoVentaRepository.findAllProductosVentas(id);
 	}
+
+	public ProductosVentas findById(Long id) {
+		return productoVentaRepository.getById(id);
+	}
+
+	public void deleteById(Long id) {
+		productoVentaRepository.deleteById(id);
+		
+	}
 	
 }

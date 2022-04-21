@@ -9,7 +9,26 @@
 					Usuario - Dirección</a></li>
 			<li><a class="dropdown-item" href="/listaDireccionesUsuarios">Listar
 					Dirección - Usuario</a></li>
-		</ul></li>
+		</ul>
+	</li>
+	
+	<li class="nav-item dropdown"><a class="nav-link dropdown-toggle"
+		data-bs-toggle="dropdown" style="color:Black;" href="venta">PDF</a>
+		<ul class="dropdown-menu">
+			<li><a class="dropdown-item" style="color:Black;" href="/venta/export/pdf">Exportar Ventas a PDF
+			</a></li>
+			<li><a class="dropdown-item" style="color:Black;" href="">Por implementar</a></li>
+		</ul>
+	</li>
+	
+	<li class="nav-item dropdown"><a class="nav-link dropdown-toggle"
+		data-bs-toggle="dropdown" style="color:Black;" href="venta">Venta</a>
+		<ul class="dropdown-menu">
+			<li><a class="dropdown-item" style="color:Black;" href="/venta">Ingresar Venta</a></li>
+			<li><a class="dropdown-item" style="color:Black;" href="/venta/ver">Ver Venta por Id</a></li>
+		</ul>
+	</li>
+	
 	<li class="nav-item"><a class="nav-link" style="color:Black;" href="/direccion/usuario">Crear
 			Dirección Usuario</a></li>
 	<li class="nav-item"><a class="nav-link" style="color:Black;" href="/direccion/cliente">Crear
@@ -20,7 +39,6 @@
 			Auto</a></li>
 	<li class="nav-item"><a class="nav-link" style="color:Black;" href="/compra">Compra</a></li>
 	<li class="nav-item"><a class="nav-link" style="color:Black;" href="/producto">Producto</a></li>
-	<li class="nav-item"><a class="nav-link" style="color:Black;" href="/venta">Venta</a></li>
 	<li class="nav-item"><a class="nav-link" style="color:Black;" href="/" action="/logout">Salir</a></li>
 	
 	<!-- <li class="nav-item">

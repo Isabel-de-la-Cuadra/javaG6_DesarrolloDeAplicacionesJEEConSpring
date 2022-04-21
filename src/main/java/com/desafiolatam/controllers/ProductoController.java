@@ -36,15 +36,14 @@ public class ProductoController {
 				BindingResult result, Model model, RedirectAttributes redirectAttributes) {
 			if(!result.hasErrors()) { //no existe error
 				productoService.save(producto);
-				redirectAttributes.addFlashAttribute("msgOk", "Compra creada correctamente");
+				redirectAttributes.addFlashAttribute("msgOk", "Producto creado correctamente");
 				return "redirect:/producto";
 			}else {//existe error capturado por el @Valid
 				System.out.println("En el else del postMapping");
 		
 				return "producto/crearProducto.jsp"; // Llamado al jsp u otra ruta
 			}
-			
-			
-			
+
 		}
+
 }

@@ -1,5 +1,7 @@
 package com.desafiolatam.services;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -23,5 +25,9 @@ public class VentaService {
 
 	public Boolean existsById(Long ventaId) {
 		return ventaRepository.existsById(ventaId);
+	}
+
+	public List<Venta> findAll() {
+		return ventaRepository.findAll();
 	}
 }

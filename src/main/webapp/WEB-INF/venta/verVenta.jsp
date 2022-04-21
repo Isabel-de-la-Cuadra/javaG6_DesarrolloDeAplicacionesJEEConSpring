@@ -86,6 +86,7 @@
 							<!-- <td><a class="btn btn-outline-danger" href="/venta/producto/${productosVenta.id}/">Eliminar</td>  -->
 						</tr>
 					</c:forEach>
+						
 						<tr>
 							<td></td>
 							<td></td>
@@ -93,6 +94,12 @@
 							<td>${venta.monto}</td>
 						</tr>
 					
+						<tr>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td><a href="/venta/export/pdf/${venta.id}">Imprimir</a> </td>
+						</tr>
 				</tbody>
 			</table>
 		</div>
