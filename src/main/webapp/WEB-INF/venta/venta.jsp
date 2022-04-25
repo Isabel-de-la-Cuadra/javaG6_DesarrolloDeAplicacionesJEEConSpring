@@ -103,7 +103,7 @@
 						<td></td>
 						<td></td>
 						<td>TOTAL</td>
-						<td>${productosVentas.venta.monto}</td>	
+						<td>${venta.monto}</td>	
 					</tr>
 
 				</tbody>

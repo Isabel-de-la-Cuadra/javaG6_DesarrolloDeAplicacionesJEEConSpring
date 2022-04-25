@@ -172,10 +172,13 @@ public class VentaController {
 		public String eliminarVenta(@PathVariable("id") Long id, Model model) {
 			ProductosVentas productosVentas = productoVentaService.findById(id);
 			Venta venta = productosVentas.getVenta();
+			venta.setMonto(venta.getMonto() - productosVentas.getTotal());
+			venta = ventaService.save(venta);
 			productoVentaService.deleteById(id);
 			List<ProductosVentas> listaProductosVentas = productoVentaService.findAllProductosVentas(venta.getId());
 			
-			model.addAttribute("venta", venta.getId());
+			model.addAttribute("ventaId", venta.getId());
+			model.addAttribute("venta", venta);
 		System.out.println("venta " + venta.getId() + "ListaProductosVenta " + listaProductosVentas);
 			model.addAttribute("listaProductosVentas", listaProductosVentas);
 			model.addAttribute("listaProductos", productoService.findAll());	
