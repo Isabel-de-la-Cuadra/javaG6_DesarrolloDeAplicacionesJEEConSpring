@@ -21,6 +21,9 @@ import javax.validation.constraints.NotNull;
 import org.hibernate.validator.constraints.Range;
 import org.springframework.format.annotation.DateTimeFormat;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Table(name="ventas")
 public class Venta {
@@ -33,6 +36,7 @@ public class Venta {
 	@Range(min=0, message = "Fuera del rango") //acepta 0,001
 	private Float monto;
 	
+	@JsonIgnore 
 	@ManyToMany(fetch = FetchType.LAZY)
 	@JoinTable( name="productos_ventas",
 		joinColumns = @JoinColumn(name = "venta_id"),
@@ -41,6 +45,7 @@ public class Venta {
 	private List<Producto> listaProductos;
 	
 	//ManyToOne FK
+	@JsonBackReference
 		@ManyToOne (fetch = FetchType.LAZY)
 		@JoinColumn(name = "cliente_id")
 		private Cliente cliente;

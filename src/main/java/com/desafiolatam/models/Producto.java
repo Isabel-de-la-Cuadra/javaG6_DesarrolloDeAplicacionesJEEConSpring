@@ -20,6 +20,9 @@ import javax.validation.constraints.NotNull;
 import org.hibernate.validator.constraints.Range;
 import org.springframework.format.annotation.DateTimeFormat;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
+
 @Entity
 @Table(name="productos")
 public class Producto {
@@ -50,6 +53,7 @@ public class Producto {
 		this.stock = stock;
 	}
 	
+	@JsonBackReference //Se coloca donde no está la FK
 	@ManyToMany(fetch = FetchType.LAZY)
 	@JoinTable( name="productos_ventas",
 	joinColumns = @JoinColumn(name = "producto_id"),

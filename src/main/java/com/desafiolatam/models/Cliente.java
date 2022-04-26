@@ -20,6 +20,8 @@ import javax.validation.constraints.Size;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 @Entity
 @Table(name="clientes")
 public class Cliente {
@@ -45,10 +47,12 @@ public class Cliente {
 	private Direccion direccion;
 
 	//OneToMany si no tiene la FK es solo esto
+	@JsonManagedReference
 	@OneToMany (mappedBy="cliente", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	private List<Compra> compras;
 	
 	//OneToMany si no tiene la FK es solo esto
+	@JsonManagedReference
 	@OneToMany (mappedBy="cliente", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	private List<Venta> ventas;
 	
