@@ -38,8 +38,6 @@ public class ApiRestController {
 	@Autowired
 	ClienteService clienteService;
 	
-	//Métodos post, get, put, delete
-	
 	@RequestMapping(value="/producto/obtener", method=RequestMethod.GET)
 	public List<Producto> obtenerProducto(){
 		List<Producto> listaProductos = productoService.findAll();
@@ -87,7 +85,5 @@ public class ApiRestController {
 		return venta;
 		
 	}
-	
-	
 	
 }

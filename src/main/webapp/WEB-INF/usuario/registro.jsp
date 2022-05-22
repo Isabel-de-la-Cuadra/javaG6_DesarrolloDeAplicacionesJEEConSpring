@@ -76,10 +76,6 @@
 									<div class="invalid-feedback">El reingreso de Password es necesario</div>
 								</div>
 
-								<!-- <p class="form-text text-muted mb-3">
-									By registering you agree with our terms and condition.
-								</p>
-								 -->
 								<div class="align-items-center d-flex">
 									<button type="submit" class="btn btn-primary ms-auto">
 										Registrar</button>
@@ -93,9 +89,6 @@
 							</div>
 						</div>
 					</div>
-					<!-- <div class="text-center mt-5 text-muted">
-						Copyright &copy; 2017-2021 &mdash; Your Company 
-					</div>  -->
 				</div>
 			</div>
 		</div>
@@ -110,7 +103,8 @@
 
 
 <!-- Bootstrap Bundle with Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js " integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p " crossorigin="anonymous "></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js " >
+    </script>
 
  
 </body>

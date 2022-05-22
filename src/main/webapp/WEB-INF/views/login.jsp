@@ -42,7 +42,7 @@
 								novalidate="" autocomplete="off">
 								<div class="mb-3">
 									<label class="mb-2 text-muted" for="correo">Correo</label> <input
-										id="correo" type="email" class="form-control" name="correo"
+										id="correo" type="email" class="form-control" name="username"
 										value="" placeholder="Ingresa tu correo electrónico" required
 										autofocus>
 									<div class="invalid-feedback">El Correo no es válido</div>
@@ -56,6 +56,7 @@
 								</div>
 								
 								<div class="align-items-center d-flex">
+								<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
 									<button type="submit" class="btn btn-primary ms-auto" id="botonColor">
 										Ingresar</button>
 								</div>

@@ -1,6 +1,7 @@
 package com.desafiolatam.models;
 
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -9,6 +10,9 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
@@ -49,10 +53,25 @@ public class Usuario {
 	@Size(min=4,message = "El mínimo de caracteres es 4")
 	private String passwordControl;
 	
+	public List<Rol> getRoles() {
+		return roles;
+	}
+
+	public void setRoles(List<Rol> roles) {
+		this.roles = roles;
+	}
 	//OneToOne, trae por default los join Eager (Activo, de inmediato) or Lazy (Pasivo, lo hace cuando se lo piden)
 	//se mapea con usuario no con la tabla
 	@OneToOne (mappedBy="usuario", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	private Direccion direccion;
+	
+	@ManyToMany(fetch=FetchType.EAGER)//join
+	@JoinTable(
+			name="roles_usuarios",
+			joinColumns= @JoinColumn(name="usuario_id"),
+			inverseJoinColumns=@JoinColumn(name="rol_id")
+			)
+	private List<Rol> roles;
 	
 	@Column(updatable=false)
 	@DateTimeFormat(pattern="yyyy-MM-dd")

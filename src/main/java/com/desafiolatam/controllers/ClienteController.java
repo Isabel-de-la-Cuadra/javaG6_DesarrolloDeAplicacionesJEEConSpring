@@ -1,6 +1,5 @@
 package com.desafiolatam.controllers;
 
-import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,7 +13,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.desafiolatam.models.Cliente;
-import com.desafiolatam.models.Usuario;
 import com.desafiolatam.services.ClienteService;
 import com.desafiolatam.services.UsuarioService;
 
@@ -22,7 +20,6 @@ import com.desafiolatam.services.UsuarioService;
 @RequestMapping("/cliente")
 public class ClienteController {
 
-	// Inyección de dependencia
 	@Autowired
 	ClienteService clienteService;
 	
@@ -30,25 +27,25 @@ public class ClienteController {
 	UsuarioService usuarioService;
 
 	// muestra el jsp
-	@RequestMapping("") // https://localhost:9080/cliente
-	public String showRegistro(@ModelAttribute("cliente") Cliente cliente, Model model, HttpSession session) { 
+//	@RequestMapping("") // https://localhost:9080/cliente
+//	public String showRegistro(@ModelAttribute("cliente") Cliente cliente, Model model, HttpSession session) { 
 		// con @ModelAttributte traspasamos el objeto desde el .jsp
 		// public String showRegistro(Model,model){
 		// model.addAtribute("cliente", new Cliente()); /* otra forma de pasar un objeto
 		// vacío*/
 
-		if (session.getAttribute("correoUsuario") != null) {
-			String correoUsuario = (String) session.getAttribute("correoUsuario");
-			Usuario usuario = usuarioService.findByCorreo(correoUsuario);
-			model.addAttribute("nombreUsuario", usuario.getNombre());
-			
-			// listaClientes
-			model.addAttribute("listaClientes", clienteService.findAll());
-			return "cliente/cliente.jsp"; // Llamado al jsp u otra ruta
-		} else {
-			return "redirect:/";
-		}
-	}
+//		if (session.getAttribute("correoUsuario") != null) {
+//			String correoUsuario = (String) session.getAttribute("correoUsuario");
+//			Usuario usuario = usuarioService.findByCorreo(correoUsuario);
+//			model.addAttribute("nombreUsuario", usuario.getNombre());
+//			
+//			// listaClientes
+//			model.addAttribute("listaClientes", clienteService.findAll());
+//			return "cliente/cliente.jsp"; // Llamado al jsp u otra ruta
+//		} else {
+//			return "redirect:/";
+//		}
+//	}
 
 	// capturar los datos del jsp
 	@PostMapping("")
